@@ -1,0 +1,77 @@
+{
+  "financialDocument": {
+    "documentID": "FIN-2024-001",
+    "documentType": "Construction and Maintenance Report",
+    "dateIssued": "2024-06-30",
+    "issuer": {
+      "name": "City of Paris",
+      "identifier": "1234567890",
+      "address": "Hôtel de Ville, 75004 Paris, France",
+      "contactPoint": "finance@paris.fr",
+      "website": "https://www.paris.fr"
+    },
+    "relatedTo": {
+      "building": {
+        "name": "Eiffel Tower",
+        "address": "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France",
+        "owner": {
+          "name": "City of Paris",
+          "identifier": "1234567890",
+          "address": "Hôtel de Ville, 75004 Paris, France",
+          "contactPoint": "contact@paris.fr",
+          "website": "https://www.paris.fr"
+        }
+      }
+    },
+    "financialDetails": {
+      "constructionCosts": [
+        {
+          "year": 1887,
+          "amount": 1000000,
+          "currency": "FRF",
+          "description": "Initial construction costs for the foundation."
+        },
+        {
+          "year": 1888,
+          "amount": 2000000,
+          "currency": "FRF",
+          "description": "Construction costs for the first and second levels."
+        },
+        {
+          "year": 1889,
+          "amount": 1500000,
+          "currency": "FRF",
+          "description": "Final construction costs for the completion of the tower."
+        }
+      ],
+      "maintenanceCosts": [
+        {
+          "year": 2022,
+          "amount": 500000,
+          "currency": "EUR",
+          "description": "Annual maintenance and painting."
+        },
+        {
+          "year": 2023,
+          "amount": 600000,
+          "currency": "EUR",
+          "description": "Structural inspections and minor repairs."
+        }
+      ],
+      "fundingSources": [
+        {
+          "source": "Government Grant",
+          "amount": 2000000,
+          "currency": "EUR",
+          "description": "Annual grant for maintenance and operations."
+        },
+        {
+          "source": "Tourism Revenue",
+          "amount": 1000000,
+          "currency": "EUR",
+          "description": "Revenue from ticket sales and concessions."
+        }
+      ]
+    }
+  }
+}

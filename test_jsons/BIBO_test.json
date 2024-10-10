@@ -1,0 +1,20 @@
+{
+  "book": {
+    "title": "The Lord of the Rings",
+    "author": {
+      "name": "J.R.R. Tolkien",
+      "birthdate": "1892-01-03",
+      "nationality": "British"
+    },
+    "publisher": {
+      "name": "George Allen & Unwin",
+      "location": "London"
+    },
+    "publication_date": "1954-07-29",
+    "isbn": "978-0-261-10236-9",
+    "language": "en",
+    "pages": 1178,
+    "genres": ["Fantasy", "Adventure"],
+    "summary": "The Lord of the Rings is an epic high-fantasy novel written by English author and scholar J.R.R. Tolkien. The story began as a sequel to Tolkien's 1937 children's book The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling novels ever written, with over 150 million copies sold."
+  }
+}

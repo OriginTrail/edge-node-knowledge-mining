@@ -1,0 +1,40 @@
+{
+  "researchPapers": [
+    {
+      "id": 1,
+      "title": "Innovative Methods in AI Research",
+      "abstract": "This paper explores innovative methods in artificial intelligence research.",
+      "date": "2024-06-25",
+      "volume": "15",
+      "issue": "2",
+      "pageNumbers": "45-60",
+      "doi": "https://doi.org/10.1234/5678",
+      "rights": "All rights reserved.",
+      "cites": ["Previous Study on AI"]
+    },
+    {
+      "id": 2,
+      "title": "Previous Study on AI",
+      "abstract": "This paper discusses the previous study on artificial intelligence.",
+      "date": "2023-05-15",
+      "volume": "12",
+      "issue": "1",
+      "pageNumbers": "30-40",
+      "doi": "https://doi.org/10.9876/5432",
+      "rights": "All rights reserved."
+    }
+  ],
+  "authors": [
+    {
+      "name": "Dr. Alice"
+    },
+    {
+      "name": "Prof. Bob"
+    }
+  ],
+  "publisher": {
+    "name": "Tech Science Publishers",
+    "contactPoint": "contact@techscience.com",
+    "address": "123 Tech St, Innovation City, Science Country"
+  }
+}

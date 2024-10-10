@@ -1,0 +1,35 @@
+{
+  "newsArticle": {
+    "headline": "New Discovery in Quantum Computing",
+    "datePublished": "2024-06-25",
+    "author": {
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "address": "123 Quantum St, Tech City, Science Country"
+    },
+    "publisher": {
+      "name": "Tech News Daily",
+      "contact": "contact@technewsdaily.com",
+      "address": "456 Media Ave, Media City, News Country"
+    },
+    "articleBody": "Scientists have made a breakthrough in quantum computing that could revolutionize the technology industry."
+  },
+  "event": {
+    "name": "Quantum Computing Conference 2024",
+    "startDate": "2024-07-10",
+    "endDate": "2024-07-12",
+    "location": {
+      "name": "Tech Convention Center",
+      "address": "789 Convention Rd, Tech City, Science Country",
+      "geo": {
+        "latitude": "35.689487",
+        "longitude": "139.691706"
+      }
+    },
+    "organizer": {
+      "name": "Tech Events Inc.",
+      "contact": "info@techevents.com",
+      "address": "123 Organizer St, Event City, Country"
+    }
+  }
+}

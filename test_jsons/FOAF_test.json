@@ -1,0 +1,29 @@
+{
+  "person": {
+    "name": "Alice Wonderland",
+    "username": "alice123",
+    "email": "alice@example.com",
+    "homepage": "http://www.alicewonderland.com",
+    "workplaceHomepage": "http://www.examplecompany.com",
+    "knows": [
+      {
+        "name": "Bob Johnson",
+        "username": "bob456",
+        "email": "bob@example.com",
+        "homepage": "http://www.bobjohnson.com",
+        "workplaceHomepage": "http://www.anothercompany.com"
+      },
+      {
+        "name": "Carol Smith",
+        "username": "carol789",
+        "email": "carol@example.com",
+        "homepage": "http://www.carolsmith.com",
+        "workplaceHomepage": "http://www.differentcompany.com"
+      }
+    ],
+    "organization": {
+      "name": "Example Company",
+      "homepage": "http://www.examplecompany.com"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "@context": "http://schema.org",
+  "@type": "DigitalDocument",
+  "name": "entertainment_test.json",
+  "fileFormat": "application/json",
+  "headline": "An Overviewx of League of Legends and Its Compelling Universe",
+  "abstract": [
+    "hahaThis summary delves into the phenomenally popular video game League of Legends, developed by Riot Games and released on October 27, 2009. Known for its dynamic blend of multiplayer online battle arena (MOBA), action, and strategy genres, the game is accessible on both PC and Mac platforms. League of Legends offers players the thrill of engaging in fast-paced, competitive matches where two teams of champions—unique characters with distinct abilities and playstyles—compete across various battlefields and game modes. The game is characterized by its substantial roster of champions, which is continuously updated, creating limitless possibilities for gameplay and fostering a vibrant tournament scene that attracts players at all skill levels."
+  ]
+}

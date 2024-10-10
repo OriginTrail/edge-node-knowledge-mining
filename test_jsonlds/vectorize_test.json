@@ -1,0 +1,21 @@
+[
+  {
+    "@context": "http://schema.org",
+    "@type": "CreativeWork",
+    "@id": "https://cloud.google.com/vertex-ai",
+    "name": "Google VertexAI",
+    "description": "Vertex AI is a machine learning (ML) platform that lets you train and deploy ML models and AI applications, and customize large language models (LLMs) for use in your AI-powered applications.",
+    "tutorial": {
+      "@id": "https://github.com/OriginTrail/ChatDKG/tree/main/examples/google-vertex-ai",
+      "isPartOf": "did:dkg:otp/0x1a061136ed9f5ed69395f18961a0a535ef4b3e5f/471513"
+    }
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "CreativeWork",
+    "@id": "https://cloud.google.com/vertex-ai",
+    "name": "Google VertexAI and OriginTrail tutorial",
+    "description": "Vertex AI is a machine learning (ML) platform that lets you train and deploy ML models and AI applications, and customize large language models (LLMs) for use in your AI-powered applications.",
+    "tutorial": "Hello there! This example will show you how to create a basic Extractive question answering system using OriginTrail Knowledge Assets and the Google Vertex AI. In contrast to generative QA systems such as ChatGPT, an extractive system doesn't hallucinate, rather only extracts content from within the verifiable Knowledge Asset. Additionally, to extend the extractive approach, we also demonstrate an 'extract & summarize' approach that takes the extracted content from the Knowledge Asset and submits it to an LLM (in this case Vertex AI Prediction Service) to summarize."
+  }
+]

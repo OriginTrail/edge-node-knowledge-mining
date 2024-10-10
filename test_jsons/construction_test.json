@@ -1,0 +1,139 @@
+{
+  "building": {
+    "id": "https://en.wikipedia.org/wiki/Eiffel_Tower",
+    "name": "Eiffel Tower",
+    "address": "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France",
+    "owner": {
+      "name": "City of Paris",
+      "identifier": "1234567890",
+      "address": "Hôtel de Ville, 75004 Paris, France",
+      "contactPoint": "contact@paris.fr",
+      "id": "https://www.paris.fr"
+    },
+    "hasPart": [
+      {
+        "name": "First Floor",
+        "type": "floor",
+        "location": {
+          "name": "First Floor of Eiffel Tower",
+          "address": "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France",
+          "geo": {
+            "latitude": "48.858370",
+            "longitude": "2.294481"
+          }
+        },
+        "installedBy": {
+          "name": "Gustave Eiffel",
+          "identifier": "1832188345",
+          "address": "15 Rue La Fayette, 75009 Paris, France",
+          "contactPoint": "contact@eiffel.com",
+          "id": "https://en.wikipedia.org/wiki/Gustave_Eiffel"
+        },
+        "madeOf": [
+          {
+            "name": "Iron",
+            "type": "metal",
+            "supplier": {
+              "name": "Iron Supplier",
+              "identifier": "2345678901",
+              "address": "123 Iron St, 75010 Paris, France",
+              "contactPoint": "contact@ironsupplier.com",
+              "id": "https://www.ironsupplier.com"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Second Floor",
+        "type": "floor",
+        "location": {
+          "name": "Second Floor of Eiffel Tower",
+          "address": "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France",
+          "geo": {
+            "latitude": "48.858370",
+            "longitude": "2.294481"
+          }
+        },
+        "installedBy": {
+          "name": "Gustave Eiffel",
+          "identifier": "1832188345",
+          "address": "15 Rue La Fayette, 75009 Paris, France",
+          "contactPoint": "contact@eiffel.com",
+          "id": "https://en.wikipedia.org/wiki/Gustave_Eiffel"
+        },
+        "madeOf": [
+          {
+            "name": "Iron",
+            "type": "metal",
+            "supplier": {
+              "name": "Iron Supplier",
+              "identifier": "2345678901",
+              "address": "123 Iron St, 75010 Paris, France",
+              "contactPoint": "contact@ironsupplier.com",
+              "id": "https://www.ironsupplier.com"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Third Floor",
+        "type": "floor",
+        "location": {
+          "name": "Third Floor of Eiffel Tower",
+          "address": "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France",
+          "geo": {
+            "latitude": "48.858370",
+            "longitude": "2.294481"
+          }
+        },
+        "installedBy": {
+          "name": "Gustave Eiffel",
+          "identifier": "1832188345",
+          "address": "15 Rue La Fayette, 75009 Paris, France",
+          "contactPoint": "contact@eiffel.com",
+          "website": "https://en.wikipedia.org/wiki/Gustave_Eiffel"
+        },
+        "madeOf": [
+          {
+            "name": "Iron",
+            "type": "metal",
+            "supplier": {
+              "name": "Iron Supplier",
+              "identifier": "2345678901",
+              "address": "123 Iron St, 75010 Paris, France",
+              "contactPoint": "contact@ironsupplier.com",
+              "website": "https://www.ironsupplier.com"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "sensor": {
+    "name": "Temperature Sensor",
+    "type": "temperature",
+    "measures": "temperature",
+    "valueMeasured": "28",
+    "unitMeasured": "°C",
+    "installedAt": {
+      "name": "First Floor",
+      "type": "floor",
+      "location": {
+        "name": "First Floor of Eiffel Tower",
+        "address": "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France",
+        "geo": {
+          "latitude": "48.858370",
+          "longitude": "2.294481"
+        }
+      }
+    },
+    "status": "active",
+    "manufacturer": {
+      "name": "SensorTech",
+      "identifier": "5678901234",
+      "address": "456 Sensor St, Tech City, Tech Country",
+      "contactPoint": "support@sensortech.com",
+      "website": "https://www.sensortech.com"
+    }
+  }
+}

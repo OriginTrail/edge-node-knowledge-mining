@@ -1,0 +1,54 @@
+{
+  "hospital": {
+    "name": "General Hospital",
+    "address": "123 Health St, Wellness City, Health Country",
+    "contact": "contact@generalhospital.com"
+  },
+  "patient": {
+    "name": "Jane Doe",
+    "age": 30,
+    "gender": "Female",
+    "medicalHistory": [
+      {
+        "condition": {
+          "name": "Asthma",
+          "description": "A condition in which your airways narrow and swell and may produce extra mucus.",
+          "treatment": [
+            {
+              "therapy": {
+                "name": "Inhaled Corticosteroids",
+                "description": "Medications to help reduce inflammation and prevent asthma attacks.",
+                "sideEffect": [
+                  {
+                    "symptom": {
+                      "name": "Throat irritation",
+                      "description": "A mild irritation or soreness in the throat."
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "riskFactor": [
+            {
+              "factor": {
+                "name": "Allergies",
+                "description": "Having allergic reactions can trigger asthma symptoms."
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "drug": {
+    "name": "Albuterol",
+    "description": "A medication that opens up the medium and large airways in the lungs.",
+    "manufacturer": {
+      "name": "Pharma Inc.",
+      "identifier": "PH123456",
+      "address": "202 Pharma St, PharmaCity, PharmaCountry"
+    },
+    "prescriptionStatus": "Prescription Only"
+  }
+}
