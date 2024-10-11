@@ -1,5 +1,11 @@
 # Edge node Knowledge mining
 
+## Requirements update
+```sh
+apache-airflow-providers-mysql==5.7.1
+mysqlclient==2.2.4
+```
+
 ## Environment and DB Setup
 1. cp .env.example .env
 2. create mysql DB named ‘airflow_db’
