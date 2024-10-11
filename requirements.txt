@@ -16,5 +16,3 @@ pymysql==1.0.3
 SQLAlchemy>=1.4.36,<2.0
 flask_cors==5.0.0
 kubernetes==31.0.0
-apache-airflow-providers-mysql==5.7.1
-mysqlclient==2.2.4
