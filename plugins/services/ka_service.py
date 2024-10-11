@@ -17,6 +17,7 @@ def json_arr_to_ka(json_arr, file_name, llm_model):
         "fileFormat": "application/pdf",
         "headline": "",
         "abstract": "",
+        "contentType": "",
         "hasPart": [],
     }
 
@@ -51,10 +52,16 @@ def json_arr_to_ka(json_arr, file_name, llm_model):
     ** Instructions **:
     Headline: Analyze the text fields across the 200 elements and identify the most relevant title or topic that represents the entire PDF.
     Abstract: Based on the text content in the elements, construct a brief abstract that summarizes the main points of the PDF.
+    ContentType: Based on the content of the JSON object, determine the most appropriate content type (e.g., Dataset, Report, Article) that belongs to schema.org ontology, and return it as the third row. The content type should reflect the nature and purpose of the JSON content.
 
     ** Actual input **
     Here is the JSON array for you to analyze:
     {[elem["text"] for elem in json_arr[0:200]]}
+
+    Make sure to answer in three rows:
+    1. First row should be the headline.
+    2. Second row should be the abstract - a detailed narrative that summarizes the content of the JSON object.
+    3. Third row should be the inferred content type from schema.org (e.g., Dataset, Report, Article, Book, Movie).
 
     ** Output format **
     Make sure to answer in two rows - first row should be the headline and the second row should be the abstract.
@@ -62,11 +69,13 @@ def json_arr_to_ka(json_arr, file_name, llm_model):
     ** Example outputs **
     Output 1:
     "Here you will put the headline
-    Here you will put the abstract"
+    Here you will put the abstract
+    Dataset"
 
-    Output 2: 
+    Output 2:
     "Headline 1 example
-    Abstract 1 example"
+    Abstract 1 example
+    Report"
     """
 
     logging.info(f"Generating headline and abstract using {llm_model}")
@@ -78,6 +87,7 @@ def json_arr_to_ka(json_arr, file_name, llm_model):
     ka["headline"] = response_lines[0].strip()
     abstract = response_lines[1].strip()
     ka["abstract"] = split_abstract(abstract)
+    ka["contentType"] = response_lines[2].strip().replace('"', "")
 
     return ka
 
@@ -90,6 +100,7 @@ def simple_json_to_ka(json_content, file_name, llm_model):
         "fileFormat": "application/json",
         "headline": "",
         "abstract": "",
+        "contentType": "",
     }
 
     prompt = f"""
@@ -97,36 +108,43 @@ def simple_json_to_ka(json_content, file_name, llm_model):
 
     ** Instructions **:
     1. Read through the text content in the JSON object, considering all elements that contribute to the overall understanding of the topic.
-    2. Craft a comprehensive narrative that encapsulates the core ideas, themes, and insights present in the dataset. 
+    2. Craft a comprehensive narrative that encapsulates the core ideas, themes, and insights present in the dataset.
     3. The summary should not merely describe the structure of the JSON object (e.g., "It has property X and Y"), but rather tell a coherent story that a human reader can easily understand. Focus on delivering a clear, meaningful, and engaging summary of the information, as if you were explaining the key points to someone unfamiliar with the content.
     4. Capture as much information as you can from the JSON object for the abstract - it is totally alright that the abstract is long.
+    5. Based on the content of the JSON object, determine the most appropriate content type (e.g., Dataset, Report, Article) that belongs to schema.org ontology, and return it as the third row. The content type should reflect the nature and purpose of the JSON content.
 
     ** Actual input **:
     Here is the text content from the JSON object for your analysis:
     {json_content}
 
     ** Output format **:
-    Make sure to answer in two rows - first row should be the headline and the second row should be the abstract - a detailed narrative that summarizes the content of the JSON object.
+    Make sure to answer in three rows:
+    1. First row should be the headline.
+    2. Second row should be the abstract - a detailed narrative that summarizes the content of the JSON object.
+    3. Third row should be the inferred content type from schema.org (e.g., Dataset, Report, Article, Book, Movie).
 
     ** Example output **:
     Output 1:
     "Title of the Document (headline)
-    This document provides a thorough exploration of... (abstract)"
+    This document provides a thorough exploration of... (abstract)
+    Dataset"
 
     Output 2:
     "Key Findings on Topic X (headline)
-    The dataset reveals critical insights into... (abstract)"
+    The dataset reveals critical insights into... (abstract)
+    Report"
     """
 
-    logging.info(f"Generating headline and abstract using {llm_model}")
+    logging.info(f"Generating headline, abstract, and content type using {llm_model}")
     response_text = call_openai_api(llm_model, prompt)
     logging.info(f"Got response from {llm_model} - {response_text}")
 
     response_lines = response_text.split("\n")
 
-    # Extract headline and abstract
+    # Extract headline, abstract, and content type
     ka["headline"] = response_lines[0].strip()
     abstract = response_lines[1].strip()
     ka["abstract"] = split_abstract(abstract)
+    ka["contentType"] = response_lines[2].strip().replace('"', "")
 
     return ka
