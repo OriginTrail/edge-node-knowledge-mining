@@ -126,8 +126,7 @@ def check_pipeline_status():
                 "message": "DAG completed successfully",
                 "xcom_value": result["xcom_value"],
             }
-            if "suggested_questions" in result:
-                response["suggested_questions"] = result["suggested_questions"]
+
             return jsonify(response), 200
         elif result["status"] == "failed":
             return jsonify({"status": result["status"], "message": "DAG failed"}), 500
