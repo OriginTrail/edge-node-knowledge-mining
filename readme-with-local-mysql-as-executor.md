@@ -1,22 +1,26 @@
 # Edge node Knowledge mining
 
 ## Requirements update
+
 ```sh
 apache-airflow-providers-mysql==5.7.1
 mysqlclient==2.2.4
 ```
 
 ## Environment and DB Setup
+
 1. cp .env.example .env
 2. create mysql DB named ‘airflow_db’
 3. Install MYSQL development lib (if not installed) - brew install mysql-client
    1. After installation check mysql-client path -> brew info mysql-client
    2. Update your .zshrc or ~/.bash_profile
+
 ```sh
 echo 'export PATH="YOUR_PATH_TO/mysql-client/bin:$PATH"' >> ~/.zshrc && \
 echo 'export PKG_CONFIG_PATH="YOUR_PATH_TO/mysql-client/lib/pkgconfig:$PKG_CONFIG_PATH"' >> ~/.zshrc && \
 source ~/.zshrc
 ```
+
 Those variables needs to available when installing project requirements.
 
 ## Install Python environment
@@ -24,7 +28,7 @@ Those variables needs to available when installing project requirements.
 1. It's recommended to use **pyenv** and to install **Python 3.11** locally inside the app's directory so it doesn't clash with other Python version on your machine
    ```sh
    pyenv local 3.11.7
-      ```
+   ```
 2. Now that Python is available (python -v), Virtual environment should be set in order to install requirements
    ```sh
    python -m venv .venv && source .venv/bin/activate
@@ -35,6 +39,7 @@ Those variables needs to available when installing project requirements.
    ```
 
 ## Apache airflow setup
+
 Airflow pipelines are part of Knowledge mining service, which are used for creation of automated data processing pipelines. Main purpose of pipelines is to create content for Knowledge assets based on the input file.
 
 **Generate default airflow config**
@@ -67,12 +72,15 @@ airflow users  create --role Admin --username admin --email admin --firstname ad
 ```
 
 ### Airflow scheduler
+
 In order to have Airflow running, first Scheduler should be started:
+
 ```sh
 airflow scheduler (to pick up new DAGs/jobs)
 ```
 
 ### Unpause JOBS
+
 ```sh
 airflow dags unpause exampleDAG
 airflow dags unpause pdf_to_jsonld
@@ -80,8 +88,10 @@ airflow dags unpause simple_json_to_jsonld
 ```
 
 ### Airflow webserver
+
 To keep track how your pipelines perform, webserver should be installed. It will be available on http://localhost:8080. After starting everything pipelines should be available on page http://localhost:8080/home and un-paused \
 **Start airflow server**
+
 ```sh
 airflow webserver --port 8080 (port where you can open the dashboard)
 ```
@@ -101,6 +111,7 @@ CREATE DATABASE ka-mining-api-logging CHARACTER SET utf8mb4 COLLATE utf8mb4_unic
 ## Potential errors
 
 #### Error: When installing pip requirements.txt -> Trying pkg-config --exists mysqlclient Command 'pkg-config --exists mysqlclient' returned non-zero exit status 1
+
 ```sh
 brew link --force mysql-client
 CFLAGS="-I/opt/homebrew/opt/mysql-client/include/mysql" \
@@ -108,9 +119,10 @@ LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib" \
 pip install mysqlclient
 ```
 
+## Examples - make sure to add cookie from auth service /login method
 
 ```sh
-    curl -X POST http://localhost:5001/trigger_pipeline \
+    curl -X POST http://localhost:5005/trigger_pipeline \
     -F "file=@test_pdfs/22pages_eng.pdf" \
     -F "pipelineId=pdf_to_jsonld" \
     -F "fileFormat=pdf" \
@@ -118,19 +130,19 @@ pip install mysqlclient
 ```
 
 ```sh
-    curl -X POST http://localhost:5001/trigger_pipeline \
+    curl -X POST http://localhost:5005/trigger_pipeline \
     -F "file=@test_jsons/entertainment_test.json" \
     -F "pipelineId=simple_json_to_jsonld" \
     -F "fileFormat=json" \
-    -b "connect.sid=s%3A9XCAe7sos-iY4Z_jIjyVcQYjLaYHVi0H.UeghM8ZRS97nVkZPukbL8Zu%2F%2BbRZSAuOLpq3BMepiD0; Path=/; HttpOnly;"
+    -b "connect.sid=s%3ANo2Qoh0B_LRvHLjcu0eL3xPw_h1BwHvJ.tLLaWzEPW4sDqjfzJ5d8UFRSISB35UWmDCOpLeByCjM
+; Path=/; HttpOnly;"
 ```
 
 **Trigger the vectorization DAG via POST request**
 
 ```sh
-curl -X POST http://localhost:5000/trigger_pipeline \
+curl -X POST http://localhost:5005/trigger_pipeline \
      -F "file=@test_jsonlds/vectorize_test.json" \
      -F "pipelineId=vectorize_ka" \
      -b "connect.sid=s%3AjLYArFLH7IadiB4dkEDrppgEEQJEqNss.35WzNEW3PySPRIxrDpL5tsRZ%2F%2B%2FNo%2BnZgRPDoRz0y7g; Path=/; HttpOnly;"
 ```
-
