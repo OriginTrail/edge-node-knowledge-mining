@@ -2,7 +2,6 @@ import logging
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-import csv
 import json
 import os
 import sys
@@ -48,14 +47,14 @@ def extract_parameters(**kwargs):
 # This function creates JSONLD contents
 def convert_to_jsonld(**kwargs):
     ti = kwargs["ti"]
-    params = ti.xcom_pull(key="params", task_ids="convert_csv_to_json_array_task")
+    params = ti.xcom_pull(key="params", task_ids="convert_to_jsonld")
     file_name = params["file_name"]
-    selected_llm = params["selected_llm"]
     json_array = params["json_array"]
 
     try:
         ka = from_json_arr_to_jsonld(
-            json_array, file_name, publisher_name, publisher_domain, file_name
+            json_array,
+            file_name,
         )
 
         ti.xcom_push(key="ka", value=ka)
