@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import os
 import json
 import logging
+from plugins.services.ai_service import get_fields_to_vectorize
 
 
 load_dotenv()
@@ -27,7 +28,7 @@ def vectorize_knowledge_assets(
     model,
     json_ld_data,
     embedding_model_name,
-    use_case=None,
+    use_case,
     llm_api_key=None,
     hf_api_key=None,
 ):
@@ -46,7 +47,7 @@ def vectorize_knowledge_assets(
 
             for field in fields:
 
-                field_value = item.get(field, None)
+                field_value = item.get(field, "")
 
                 if isinstance(field_value, str):
                     # If the field value is a string, append it directly
@@ -79,8 +80,8 @@ def vectorize_knowledge_assets(
 
     if len(texts) > 0:
         embeddings = create_embedding(texts, embedding_model_name, hf_api_key)
-    logging.info({"embeddings": embeddings, "metadatas": metadatas, "texts": texts})
-    return {"embeddings": embeddings, "metadatas": metadatas, "texts": texts}
+    logging.info({"embeddings": embeddings, "metadatas": metadatas})
+    return {"embeddings": embeddings, "metadatas": metadatas}
 
 
 # To test
