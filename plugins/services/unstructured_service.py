@@ -5,12 +5,6 @@ from unstructured.cleaners.core import clean_bullets, clean_extra_whitespace
 from pypdf import PdfReader, PdfWriter
 import io
 import logging
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-api_url = os.getenv("UNSTRUCTURED_API_URL")
-api_key = os.getenv("UNSTRUCTURED_API_KEY")
 
 
 def split_pdf(file, max_pages_per_part=25):
@@ -35,7 +29,9 @@ def split_pdf(file, max_pages_per_part=25):
     return parts
 
 
-def unstructured_partitioning(file, filename):
+def unstructured_partitioning(
+    file, filename, unstructured_api_url, unstructured_api_key
+):
     pdf_reader = PdfReader(file)
 
     if len(pdf_reader.pages) > 25:
@@ -50,8 +46,8 @@ def unstructured_partitioning(file, filename):
                 strategy="hi_res",
                 pdf_infer_table_structure=True,
                 skip_infer_table_types="[]",
-                api_url=api_url,
-                api_key=api_key,
+                api_url=unstructured_api_url,
+                api_key=unstructured_api_key,
             )
             elements.extend(part_elements)
     else:
@@ -63,8 +59,8 @@ def unstructured_partitioning(file, filename):
             strategy="hi_res",
             pdf_infer_table_structure=True,
             skip_infer_table_types="[]",
-            api_url=api_url,
-            api_key=api_key,
+            api_url=unstructured_api_url,
+            api_key=unstructured_api_key,
         )
 
     elements_json = json.loads(elements_to_json(elements))
@@ -110,8 +106,12 @@ def unstructured_cleaning(json_data):
     return cleaned_data
 
 
-def unstructured_convert_pdf_to_json_array(file, filename):
-    partitioned_elements = unstructured_partitioning(file, filename)
+def unstructured_convert_pdf_to_json_array(
+    file, filename, unstructured_api_url, unstructured_api_key
+):
+    partitioned_elements = unstructured_partitioning(
+        file, filename, unstructured_api_url, unstructured_api_key
+    )
     filtered_elements = unstructured_filtering(partitioned_elements)
     cleaned_elements = unstructured_cleaning(filtered_elements)
 
