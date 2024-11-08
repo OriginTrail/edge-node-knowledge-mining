@@ -46,13 +46,20 @@ def convert_pdf_to_json_array(**kwargs):
     file_name = params["file_name"]
     selected_llm = params["selected_llm"]
 
+    user_data = kwargs["dag_run"].conf.get("user_data")
+
+    unstructured_api_url = user_data.get("unstructured_api_url")
+    unstructured_api_key = user_data.get("unstructured_api_key")
+
     if file_format != "pdf":
         logging.error("File format is not PDF")
         return
 
     try:
         logging.info("Calling unstructured convert function")
-        unstr_json_array = unstructured_convert_pdf_to_json_array(file, file_name)
+        unstr_json_array = unstructured_convert_pdf_to_json_array(
+            file, file_name, unstructured_api_url, unstructured_api_key
+        )
         logging.info(
             f"Successfully converted PDF to JSON array with length {len(unstr_json_array)}"
         )
