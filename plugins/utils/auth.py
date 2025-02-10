@@ -35,7 +35,7 @@ def authenticate_token(cookie):
     try:
         headers = {"Cookie": f"{COOKIE_NAME}={cookie}"}
         response = requests.get(
-            f"{AUTH_ENDPOINT}/auth/check",
+            f"{AUTH_ENDPOINT}/check",
             headers=headers,
             cookies={COOKIE_NAME: cookie},
         )
