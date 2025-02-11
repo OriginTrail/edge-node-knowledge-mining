@@ -127,14 +127,14 @@ def simple_json_to_ka(json_content, file_name, llm_model):
 
     ** Example output **:
     Output 1:
-    "Title of the Document (headline)
+    Title of the Document (headline)
     This document provides a thorough exploration of... (abstract)
-    Dataset"
+    Dataset
 
     Output 2:
-    "Key Findings on Topic X (headline)
+    Key Findings on Topic X (headline)
     The dataset reveals critical insights into... (abstract)
-    Report"
+    Report
     """
 
     logging.info(f"Generating headline, abstract, and content type using {llm_model}")
