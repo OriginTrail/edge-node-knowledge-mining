@@ -38,6 +38,7 @@ def authenticate_token(request):
             # Bearer token is present
             token = auth_header.split(' ')[1]
 
+
             if not token:
                 return {"authenticated": False, "message": "Invalid Bearer token format"}, 401
 

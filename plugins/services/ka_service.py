@@ -119,20 +119,22 @@ def simple_json_to_ka(json_content, file_name, llm_model):
 
     ** Output format **:
     Make sure to answer in three rows:
-    1. First row should be the headline.
-    2. Second row should be the abstract - a detailed narrative that summarizes the content of the JSON object.
+    1. First row should be the headline. Name/title of entity or any kind of quoted words should be quoted using single qoutes,
+    not double qoutes.
+    2. Second row should be the abstract - a detailed narrative that summarizes the content of the JSON object. Name/title of entity or any kind of quoted words should be quoted using single qoutes,
+    not double qoutes.
     3. Third row should be the inferred content type from schema.org (e.g., Dataset, Report, Article, Book, Movie).
 
     ** Example output **:
     Output 1:
-    "Title of the Document (headline)
+    Title of the Document (headline)
     This document provides a thorough exploration of... (abstract)
-    Dataset"
+    Dataset
 
     Output 2:
-    "Key Findings on Topic X (headline)
+    Key Findings on Topic X (headline)
     The dataset reveals critical insights into... (abstract)
-    Report"
+    Report
     """
 
     logging.info(f"Generating headline, abstract, and content type using {llm_model}")

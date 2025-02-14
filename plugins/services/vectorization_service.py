@@ -80,8 +80,8 @@ def vectorize_knowledge_assets(
 
     if len(texts) > 0:
         embeddings = create_embedding(texts, embedding_model_name, hf_api_key)
-    logging.info({"embeddings": embeddings, "metadatas": metadatas})
-    return {"embeddings": embeddings, "metadatas": metadatas}
+    logging.info({"embeddings": embeddings, "metadatas": metadatas, "texts": texts})
+    return {"embeddings": embeddings, "metadatas": metadatas, "texts": texts}
 
 
 # To test
