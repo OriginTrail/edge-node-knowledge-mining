@@ -44,7 +44,7 @@ def authenticate_token(request):
 
             # Send the request to the auth service
             response = requests.get(
-                f"{AUTH_ENDPOINT}/auth/check",
+                f"{AUTH_ENDPOINT}/check",
                 headers={"Authorization": f"Bearer {token}"},
             )
             response.raise_for_status()
@@ -64,7 +64,7 @@ def authenticate_token(request):
             # Send the request to the auth service using the session cookie
             headers = {"Cookie": f"{COOKIE_NAME}={session_cookie}"}
             response = requests.get(
-                f"{AUTH_ENDPOINT}/auth/check",
+                f"{AUTH_ENDPOINT}/check",
                 headers=headers,
                 cookies={COOKIE_NAME: session_cookie},
             )
