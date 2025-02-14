@@ -15,7 +15,7 @@ from plugins.utils.airflow_utils import (
 )
 import os
 from dotenv import load_dotenv
-from plugins.utils.auth import COOKIE_NAME, authenticate_token
+from plugins.utils.auth import authenticate_token
 
 load_dotenv()
 dag_folder = os.getenv("DAG_FOLDER_NAME")
@@ -36,20 +36,12 @@ def get_user_data():
 
 
 def request_middleware():
-    session_id = request.cookies.get(COOKIE_NAME)
-    if session_id:
-        # Store the session ID in the global object for later use
-        logging.info(f"Captured session ID: {session_id}")
-
-        # Authenticate the session ID and store user data in g
-        user_data = authenticate_token(session_id)
-        if user_data:
-            g.user_data = user_data
-            logging.info("User data stored in g for the current request.")
-        else:
-            logging.error("Authentication failed. No user data available.")
+    user_data = authenticate_token(request)
+    if user_data:
+        g.user_data = user_data
+        logging.info("User data stored in g for the current request.")
     else:
-        logging.info("No session ID cookie found")
+        logging.error("Authentication failed. No user data available.")
 
 
 @app.before_request
